@@ -1,0 +1,7 @@
+*.pro.user
+*/build*
+*/*/build*
+*.layout
+*.depend
+*/*/bin
+*/*/obj
