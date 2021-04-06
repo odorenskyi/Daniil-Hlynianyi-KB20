@@ -1,13 +1,14 @@
 #include <iostream>
 #include <locale.h>
+#include <windows.h>
 #include "ModulesGlinianiy.h"
 
 using namespace std;
 
 int main()
 {
-    float a, b;
-    float x, y, z, res;
+    int a, b;
+    int x, y, z, res;
 
     cout << "Danil Glinianiy. CNTU 2021. (c)" << endl;
 
@@ -18,7 +19,7 @@ int main()
     cout << "\n¬ведiть символ b: ";
     cin >> b;
 
-    if(a+1 > b-2){
+    if(a+1 < b-2){
         cout << "\n–езультат: \a" << true;
     }
     else{
@@ -27,17 +28,21 @@ int main()
 
     cout << "\n\n¬ведiть число x: ";
     cin  >>  x;
-    cout << "„исло x в шiстнадц€тковiй системi: " << hexfloat << x << endl;
+    cout << "„исло x в шiстнадц€тковiй системi: " << hex << x << endl;
 
     cout << "\n¬ведiть число y: ";
     cin >> y;
-    cout << "„исло y в шiстнадц€тковiй системi: " << hexfloat << y << endl;
+    cout << "„исло y в шiстнадц€тковiй системi: " << hex << y << endl;
 
     cout << "\n¬ведiть число z: ";
     cin >> z;
-    cout << "„исло z в шiстнадц€тковiй системi: " << hexfloat << z << endl;
+    cout << "„исло z в шiстнадц€тковiй системi: " << hex << z << endl;
 
     res = s_calculation(x, y, z);
 
-    cout << "\n–езультат: \a" << hexfloat <<  res << endl;
+    cout << "\n–езультат: \a" << hex <<  res << endl;
+
+    Sleep(30000);
+
+    return 0;
 }
