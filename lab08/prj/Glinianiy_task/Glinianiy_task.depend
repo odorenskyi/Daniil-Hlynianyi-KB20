@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1618161873 source:c:\users\glina\git\daniil-hlynianyi-kb20\lab08\prj\glinianiy_task\main.cpp
+1618167967 source:c:\users\glina\git\daniil-hlynianyi-kb20\lab08\prj\glinianiy_task\main.cpp
 	<iostream>
 	<locale.h>
 	<windows.h>
