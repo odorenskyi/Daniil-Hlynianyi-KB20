@@ -21,7 +21,7 @@ void s_cal()
 
     res = s_calculation(x, y, z);
 
-    cout << "\n–езультат: \a" << hex <<  res << endl;
+    cout << "\n–езультат: \a" << dec <<  res << endl;
 }
 
 void fFunc()
@@ -30,9 +30,11 @@ void fFunc()
 
     float gSize, res;
 
+    do{
     cout << "¬ведiть об'Їм використаного природного газу за мiс€ць: ";
     cin >> gSize;
 
+    }while(gSize <= 0);
     res = task_9_1(gSize);
 
     cout << "\a—ума до сплати за спожитий газ: " << res << " грн" << endl;
