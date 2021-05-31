@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1622479448 source:c:\users\glina\git\daniil-hlynianyi-kb20\lab10\prj\exe\main.cpp
+	<iostream>
+	<ModulesGlinianiy.h>
+
