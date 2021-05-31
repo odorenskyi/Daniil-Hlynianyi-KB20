@@ -1,8 +1,20 @@
 # depslib dependency file v1.0
 1617401130 source:c:\users\glina\git\daniil-hlynianyi-kb20\lab08\prj\modulesglinianiy\main.c
 
-1617811748 source:c:\users\glina\git\daniil-hlynianyi-kb20\lab08\prj\modulesglinianiy\modulesglinianiy.cpp
+1622389481 source:c:\users\glina\git\daniil-hlynianyi-kb20\lab08\prj\modulesglinianiy\modulesglinianiy.cpp
 	<iostream>
 	<cmath>
 	<math.h>
+	<locale.h>
+	<fstream>
+	<ctime>
+	<stdlib.h>
+	<string>
+	<iostream>
+	<clocale>
+	<fstream>
+	<fcntl.h>
+	<wchar.h>
+	<cstring>
+	<codecvt>
 

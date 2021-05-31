@@ -1,6 +1,18 @@
 #include <iostream>
 #include <cmath>
 #include <math.h>
+#include <locale.h>
+#include <fstream>
+#include <ctime>
+#include <stdlib.h>
+#include <string>
+#include <iostream>
+#include <clocale>
+#include <fstream>
+#include <fcntl.h>
+#include <wchar.h>
+#include <cstring>
+#include <codecvt>
 
 using namespace std;
 
@@ -15,11 +27,11 @@ float task_9_1(float gSize)
 {
     float res;
 
-    if(gSize < 208)
+    if(gSize <= 208)
     {
         res = gSize * 1.299;
     }
-    else if(gSize < 500)
+    else if(gSize < 500 && gSize > 208)
     {
         res = gSize * 1.788;
     }
@@ -27,6 +39,7 @@ float task_9_1(float gSize)
     {
         res = gSize * 3.645;
     }
+
     return res;
 }
 
@@ -130,7 +143,7 @@ float task_9_2(float l)
     }
     else
     {
-        cout <<"\a���������� ������� ���������, ��������� �� ���!\n";
+        cout <<"\aНекоректно введене значененя, спробуйте ще раз!\n";
     }
 
 }
@@ -156,4 +169,135 @@ int task_9_3(int num)
 
 
     return amount;
+}
+
+int task_10_1()
+{
+    setlocale(LC_ALL, "ukr");
+    string path = "out.txt";
+    wofstream fout;
+
+    fout.open(path);
+
+
+    fout << L"Розробник ПЗ: Глиняний Данiiл Валерiйович,\
+             \nЦНТУ, м. Кропивницький, Україна, 2020";
+
+    fout.close();
+}
+
+
+int in10_to2(int b, int bin = 0, int k = 1)
+{
+
+    while (b)
+    {
+        bin += (b % 2) * k;
+        k *= 10;
+        b /= 2;
+    }
+    return bin;
+}
+
+int counter()
+{
+     _wsetlocale(LC_ALL, L"uk_UA.UTF-8");
+    _setmode(_fileno(stdout), _O_U8TEXT);
+    _setmode(_fileno(stdin), _O_U8TEXT);
+
+   wifstream fout;
+
+   fout.open("in.txt");
+
+   fout.imbue(locale(locale(), new codecvt_utf8_utf16<wchar_t>));
+
+   wstring coun;
+   int a=0;
+
+   while(!fout.eof())
+   {
+      getline(fout, coun);
+      for(int i = 0; i < coun.length(); i++)
+
+      if((coun[i] >= L'A' && coun[i] <= L'Z') || (coun[i] >= L'А' && coun[i] <= L'Я') || coun[i] == L'І')
+      {
+          a++;
+      }
+   }
+
+   fout.close();
+   return a;
+}
+
+std::wifstream::pos_type filesize(const char* filename)
+{
+    std::wifstream in(filename, std::wifstream::ate | std::wifstream::binary);
+    return in.tellg();
+}
+
+int size_and_data()
+{
+    _wsetlocale(LC_ALL, L"uk_UA.UTF-8");
+    _setmode(_fileno(stdout), _O_U8TEXT);
+    _setmode(_fileno(stdin), _O_U8TEXT);
+
+    float i=filesize("in.txt");
+    time_t cur_date=time(0);
+    wofstream in;
+    in.imbue(locale(locale(), new codecvt_utf8_utf16<wchar_t>));
+    in.open("in.txt", ios_base::app);
+    in<<endl<<L"файл input у Кб: "<<i/1024<<endl<<L"Дата дозапису: "<<ctime(&cur_date);
+    in.close();
+
+    return i;
+}
+
+int read()
+{
+    _wsetlocale(LC_ALL, L"uk_UA.UTF-8");
+    _setmode(_fileno(stdout), _O_U8TEXT);
+    _setmode(_fileno(stdin), _O_U8TEXT);
+
+    wstring str1 = L"Якщо у тебе є такий талант,\nТо будуть вороги обов'язково,\nБо бездарі від заздрощів готові\nПаплюжити й ганьбити все підряд.";
+
+    wstring str2 = L"";
+
+    int c=0;
+
+    wifstream o;
+
+    o.imbue(locale(locale(), new codecvt_utf8_utf16<wchar_t>));
+
+    o.open("in.txt");
+
+    while(!o.eof())
+    {
+        wstring str;
+
+        getline(o, str);
+
+        if(!o.eof())
+        {
+        str2 += str + L"\n";
+        }
+        else
+        {
+
+        str2 += str;
+
+        }
+    }
+
+    if(str1==str2)
+    {
+        c = 1;
+    }
+    else
+    {
+        c = 0;
+    }
+
+    o.close();
+
+    return c;
 }
