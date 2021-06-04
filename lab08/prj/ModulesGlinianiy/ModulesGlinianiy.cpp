@@ -199,36 +199,6 @@ int in10_to2(int b, int bin = 0, int k = 1)
     return bin;
 }
 
-int counter()
-{
-     _wsetlocale(LC_ALL, L"uk_UA.UTF-8");
-    _setmode(_fileno(stdout), _O_U8TEXT);
-    _setmode(_fileno(stdin), _O_U8TEXT);
-
-   wifstream fout;
-
-   fout.open("in.txt");
-
-   fout.imbue(locale(locale(), new codecvt_utf8_utf16<wchar_t>));
-
-   wstring coun;
-   int a=0;
-
-   while(!fout.eof())
-   {
-      getline(fout, coun);
-      for(int i = 0; i < coun.length(); i++)
-
-      if((coun[i] >= L'A' && coun[i] <= L'Z') || (coun[i] >= L'А' && coun[i] <= L'Я') || coun[i] == L'І')
-      {
-          a++;
-      }
-   }
-
-   fout.close();
-   return a;
-}
-
 std::wifstream::pos_type filesize(const char* filename)
 {
     std::wifstream in(filename, std::wifstream::ate | std::wifstream::binary);
@@ -300,4 +270,41 @@ int read()
     o.close();
 
     return c;
+}
+
+int counter()
+{
+    _wsetlocale(LC_ALL, L"uk_UA.UTF-8");
+    _setmode(_fileno(stdout), _O_U8TEXT);
+    _setmode(_fileno(stdin), _O_U8TEXT);
+
+   wifstream fout;
+
+   fout.open("in.txt");
+
+   fout.imbue(locale(locale(), new codecvt_utf8_utf16<wchar_t>));
+
+   wstring coun, abc;
+
+   int a=0;
+   wstring c;
+
+    while (getline(fout,coun))
+        {
+            c+=coun;
+            c.push_back('\n');
+        }
+
+        fout.close();
+    for(int i=0;c[i];i++){
+
+
+       if((c[i] >= L'А' && c[i] <= L'Я') || (c[i] == L'І'))
+      {
+          abc += c[i];
+      }
+    }
+    wcout << abc;
+
+   return 0;
 }

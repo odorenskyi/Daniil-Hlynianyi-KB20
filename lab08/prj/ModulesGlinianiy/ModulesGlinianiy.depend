@@ -1,7 +1,7 @@
 # depslib dependency file v1.0
 1617401130 source:c:\users\glina\git\daniil-hlynianyi-kb20\lab08\prj\modulesglinianiy\main.c
 
-1622389481 source:c:\users\glina\git\daniil-hlynianyi-kb20\lab08\prj\modulesglinianiy\modulesglinianiy.cpp
+1622839310 source:c:\users\glina\git\daniil-hlynianyi-kb20\lab08\prj\modulesglinianiy\modulesglinianiy.cpp
 	<iostream>
 	<cmath>
 	<math.h>
