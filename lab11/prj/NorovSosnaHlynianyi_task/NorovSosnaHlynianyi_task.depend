@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1624053337 source:d:\ggg\artem-norov-kb20\lab11\prj\norovsosnahlynianyi_task\main.cpp
+	<conio.h>
+	<iostream>
+	<fstream>
+	<string.h>
+	<windows.h>
+	<clocale>
+	<string>
+	<vector>
+
